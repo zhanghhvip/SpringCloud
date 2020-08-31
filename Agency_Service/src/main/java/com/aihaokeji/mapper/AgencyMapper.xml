@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aihaokeji.mapper.AgencyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aihaokeji.entity.Agency">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="close_price" property="closePrice" />
+        <result column="change_ratio" property="changeRatio" />
+        <result column="turnover_ratio" property="turnoverRatio" />
+        <result column="ltsz" property="ltsz" />
+        <result column="agency_net_buy" property="agencyNetBuy" />
+        <result column="agency_buy" property="agencyBuy" />
+        <result column="agency_sell" property="agencySell" />
+        <result column="market_deal" property="marketDeal" />
+        <result column="agency_net_buy_ratio" property="agencyNetBuyRatio" />
+        <result column="buy_agency_num" property="buyAgencyNum" />
+        <result column="sell_agency_num" property="sellAgencyNum" />
+        <result column="reason" property="reason" />
+        <result column="trade_date" property="tradeDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, close_price, change_ratio, turnover_ratio, ltsz, agency_net_buy, agency_buy, agency_sell, market_deal, agency_net_buy_ratio, buy_agency_num, sell_agency_num, reason, trade_date
+    </sql>
+
+</mapper>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aihaokeji.mapper.RealtimeBidMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aihaokeji.entity.RealtimeBid">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="today_open_price" property="todayOpenPrice" />
+        <result column="yesterday_close_price" property="yesterdayClosePrice" />
+        <result column="cur_price" property="curPrice" />
+        <result column="today_high" property="todayHigh" />
+        <result column="today_low" property="todayLow" />
+        <result column="buy_price" property="buyPrice" />
+        <result column="sell_price" property="sellPrice" />
+        <result column="volume" property="volume" />
+        <result column="deal" property="deal" />
+        <result column="buy_one_volume" property="buyOneVolume" />
+        <result column="buy_one_price" property="buyOnePrice" />
+        <result column="buy_two_volume" property="buyTwoVolume" />
+        <result column="buy_two_price" property="buyTwoPrice" />
+        <result column="buy_three_volume" property="buyThreeVolume" />
+        <result column="buy_three_price" property="buyThreePrice" />
+        <result column="buy_four_volume" property="buyFourVolume" />
+        <result column="buy_four_price" property="buyFourPrice" />
+        <result column="buy_five_volume" property="buyFiveVolume" />
+        <result column="buy_five_price" property="buyFivePrice" />
+        <result column="sell_one_volume" property="sellOneVolume" />
+        <result column="sell_one_price" property="sellOnePrice" />
+        <result column="sell_two_volume" property="sellTwoVolume" />
+        <result column="sell_two_price" property="sellTwoPrice" />
+        <result column="sell_three_volume" property="sellThreeVolume" />
+        <result column="sell_three_price" property="sellThreePrice" />
+        <result column="sell_four_volume" property="sellFourVolume" />
+        <result column="sell_four_price" property="sellFourPrice" />
+        <result column="sell_five_volume" property="sellFiveVolume" />
+        <result column="sell_five_price" property="sellFivePrice" />
+        <result column="trade_date" property="tradeDate" />
+        <result column="trade_time" property="tradeTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, today_open_price, yesterday_close_price, cur_price, today_high, today_low, buy_price, sell_price, volume, deal, buy_one_volume, buy_one_price, buy_two_volume, buy_two_price, buy_three_volume, buy_three_price, buy_four_volume, buy_four_price, buy_five_volume, buy_five_price, sell_one_volume, sell_one_price, sell_two_volume, sell_two_price, sell_three_volume, sell_three_price, sell_four_volume, sell_four_price, sell_five_volume, sell_five_price, trade_date, trade_time
+    </sql>
+
+</mapper>

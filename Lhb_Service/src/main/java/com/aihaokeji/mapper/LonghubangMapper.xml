@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aihaokeji.mapper.LonghubangMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aihaokeji.entity.Longhubang">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="close_price" property="closePrice" />
+        <result column="change_ratio" property="changeRatio" />
+        <result column="turnover_ratio" property="turnoverRatio" />
+        <result column="ltsz" property="ltsz" />
+        <result column="lhb_net_buy" property="lhbNetBuy" />
+        <result column="lhb_buy" property="lhbBuy" />
+        <result column="lhb_sell" property="lhbSell" />
+        <result column="lhb_deal" property="lhbDeal" />
+        <result column="market_deal" property="marketDeal" />
+        <result column="net_buy_ratio" property="netBuyRatio" />
+        <result column="lhb_deal_ratio" property="lhbDealRatio" />
+        <result column="reason" property="reason" />
+        <result column="jd" property="jd" />
+        <result column="trade_date" property="tradeDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, close_price, change_ratio, turnover_ratio, ltsz, lhb_net_buy, lhb_buy, lhb_sell, lhb_deal, market_deal, net_buy_ratio, lhb_deal_ratio, reason, jd, trade_date
+    </sql>
+
+</mapper>

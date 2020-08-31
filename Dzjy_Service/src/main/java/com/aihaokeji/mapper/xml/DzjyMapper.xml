@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aihaokeji.mapper.DzjyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aihaokeji.entity.Dzjy">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="change_ratio" property="changeRatio" />
+        <result column="close_price" property="closePrice" />
+        <result column="ltsz" property="ltsz" />
+        <result column="price" property="price" />
+        <result column="volume" property="volume" />
+        <result column="deal" property="deal" />
+        <result column="zy_ratio" property="zyRatio" />
+        <result column="deal_ltsz_ratio" property="dealLtszRatio" />
+        <result column="buy_agency_name" property="buyAgencyName" />
+        <result column="sell_agency_name" property="sellAgencyName" />
+        <result column="trade_date" property="tradeDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, change_ratio, close_price, ltsz, price, volume, deal, zy_ratio, deal_ltsz_ratio, buy_agency_name, sell_agency_name, trade_date
+    </sql>
+
+</mapper>

@@ -1,0 +1,168 @@
+# use mysql;
+# show tables;
+#创建数据库
+# CREATE DATABASE IF NOT EXISTS test_db
+# DEFAULT CHARACTER SET utf8;
+# DEFAULT COLLATE utf8_chinese_ci;
+# show databases;
+# use test_db;
+# #创建表
+# create table sourcedata(
+# num int not null auto_increment primary key,
+# username varchar(10) ,
+# sentence varchar(1000)
+# );
+# create table targetdata(
+# num int not null auto_increment primary key,
+# userid varchar(10) ,
+# word varchar(1000)
+# );
+
+
+# CREATE TABLE sourcedata(
+#   id INT PRIMARY KEY AUTO_INCREMENT COMMENT '学号',
+#   name VARCHAR(200) COMMENT '姓名',
+#   age    int COMMENT '年龄'
+# ) COMMENT='学生信息'
+
+# select sentence from sourcedata where num=1;
+
+
+# use test_db;
+
+
+# CREATE TABLE `jd_item` (
+#   `id` bigint(10) NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#   `spu` bigint(15) DEFAULT NULL COMMENT '商品集合id',
+#   `sku` bigint(15) DEFAULT NULL COMMENT '商品最小品类单元id',
+#   `title` varchar(100) DEFAULT NULL COMMENT '商品标题',
+#   `price` bigint(10) DEFAULT NULL COMMENT '商品价格',
+#   `pic` varchar(200) DEFAULT NULL COMMENT '商品图片',
+#   `url` varchar(200) DEFAULT NULL COMMENT '商品详情地址',
+#   `created` datetime DEFAULT NULL COMMENT '创建时间',
+#   `updated` datetime DEFAULT NULL COMMENT '更新时间',
+#   PRIMARY KEY (`id`),
+#   KEY `sku` (`sku`) USING BTREE
+# ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='京东商品表';
+
+
+# CREATE DATABASE IF NOT EXISTS stock_data
+# DEFAULT CHARACTER SET utf8;
+
+# USE stock_data
+
+# CREATE TABLE `proxy`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `type`varchar(10)  DEFAULT NULL COMMENT '代理类型',
+#     `ip` varchar(45) DEFAULT NULL COMMENT '代理IP',
+#     `port` varchar(15) DEFAULT NULL COMMENT '代理端口',
+#     `score` tinyint DEFAULT 100 COMMENT '代理分数'
+# ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='代理IP表';
+
+
+# CREATE TABLE `stock_code`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `code` varchar(30) DEFAULT NULL COMMENT '股票代码',
+#     `name` varchar(30) DEFAULT NULL COMMENT '股票名称',
+#     `industry`  varchar(30) DEFAULT NULL COMMENT '所属板块'
+# )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='股票代码表';
+
+# CREATE TABLE `table_realtime_bid`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `code` varchar(20) DEFAULT NULL COMMENT '股票代码',
+#     `name` varchar(20) DEFAULT NULL COMMENT '股票名称',
+#     `today_open_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '今日开盘价',
+#     `yesterday_close_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '昨日收盘价',
+#     `cur_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '当前价格',
+#     `today_high` DECIMAL(8,2) DEFAULT 0.00 COMMENT '今日最高价',
+#     `today_low` DECIMAL(8,2) DEFAULT 0.00 COMMENT '今日最低价',
+#     `buy_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '竞买价(买一价)',
+#     `sell_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '竞卖价(卖一价)',
+#     `volume` bigint DEFAULT 0 COMMENT '成交量(股)',
+#     `deal` DECIMAL(20,3) DEFAULT 0.000 COMMENT '成交额(元)',
+#     `buy_one_volume` bigint DEFAULT 0 COMMENT '买一量(股)',
+#     `buy_one_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '买一价(元)',
+#     `buy_two_volume` bigint DEFAULT 0 COMMENT '买二量(股)',
+#     `buy_two_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '买二价(元)',
+#     `buy_three_volume` bigint DEFAULT 0 COMMENT '买三量(股)',
+#     `buy_three_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '买三价(元)',
+#     `buy_four_volume` bigint DEFAULT 0 COMMENT '买四量(股)',
+#     `buy_four_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '买四价(元)',
+#     `buy_five_volume` bigint DEFAULT 0 COMMENT '买五量(股)',
+#     `buy_five_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '买五价(元)',
+#     `sell_one_volume` bigint DEFAULT 0 COMMENT '卖一量(股)',
+#     `sell_one_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '卖一价(元)',
+#     `sell_two_volume` bigint DEFAULT 0 COMMENT '卖二量(股)',
+#     `sell_two_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '卖二价(元)',
+#     `sell_three_volume` bigint DEFAULT 0 COMMENT '卖三量(股)',
+#     `sell_three_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '卖三价(元)',
+#     `sell_four_volume` bigint DEFAULT 0 COMMENT '卖四量(股)',
+#     `sell_four_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '卖四价(元)',
+#     `sell_five_volume` bigint DEFAULT 0 COMMENT '卖五量(股)',
+#     `sell_five_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '卖五价(元)',
+#     `trade_date` DATE COMMENT '日期',
+#     `trade_time` TIME COMMENT '时间'
+# )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='集合竞价表';
+#
+# CREATE TABLE `table_longhubang`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `code` varchar(20) DEFAULT NULL COMMENT '股票代码',
+#     `name` varchar(20) DEFAULT NULL COMMENT '股票名称',
+#     `close_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '收盘价',
+#     `change_ratio` DECIMAL(8,2) DEFAULT 0.00 COMMENT '涨跌幅',
+#     `turnover_ratio` DECIMAL(8,2) DEFAULT 0.00 COMMENT '换手率',
+#     `ltsz`  DECIMAL(15,2) DEFAULT 0.00 COMMENT '流通市值（元）',
+#     `lhb_net_buy`   DECIMAL(15,2) DEFAULT 0.00 COMMENT '龙虎榜净买额（元）',
+#     `lhb_buy`   DECIMAL(15,2) DEFAULT 0.00 COMMENT '龙虎榜买入额（元）',
+#     `lhb_sell`  DECIMAL(15,2) DEFAULT 0.00 COMMENT '龙虎榜卖出额（元）',
+#     `lhb_deal`  DECIMAL(15,2) DEFAULT 0.00 COMMENT '龙虎榜成交额（元）',
+#     `market_deal`   DECIMAL(15,2) DEFAULT 0.00 COMMENT '市场总成交额（元）',
+#     `net_buy_ratio` DECIMAL(6,2) DEFAULT 0.00 COMMENT '净买额占市场总成交比',
+#     `lhb_deal_ratio`   DECIMAL(6,2) DEFAULT 0.00 COMMENT '成交额占市场总成交比',
+#     `reason` varchar(100) DEFAULT NULL COMMENT '上榜理由',
+#     `jd` varchar(100) DEFAULT NULL COMMENT '解读',
+#     `trade_date` DATE COMMENT '日期'
+# )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='龙虎榜表';
+#
+# CREATE TABLE `table_agency`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `code` varchar(20) DEFAULT NULL COMMENT '股票代码',
+#     `name` varchar(20) DEFAULT NULL COMMENT '股票名称',
+#     `close_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '收盘价',
+#     `change_ratio` DECIMAL(8,2) DEFAULT 0.00 COMMENT '涨跌幅',
+#     `turnover_ratio` DECIMAL(8,2) DEFAULT 0.00 COMMENT '换手率',
+#     `ltsz`  DECIMAL(15,2) DEFAULT 0.00 COMMENT '流通市值（元）',
+#     `agency_net_buy`   DECIMAL(15,2) DEFAULT 0.00 COMMENT '机构净买额（元）',
+#     `agency_buy`   DECIMAL(15,2) DEFAULT 0.00 COMMENT '机构买入额（元）',
+#     `agency_sell`  DECIMAL(15,2) DEFAULT 0.00 COMMENT '机构卖出额（元）',
+#     `market_deal`   DECIMAL(15,2) DEFAULT 0.00 COMMENT '市场总成交额（元）',
+#     `agency_net_buy_ratio` DECIMAL(6,2) DEFAULT 0.00 COMMENT '机构净买额占市场总成交比',
+#     `buy_agency_num`   tinyint DEFAULT 0 COMMENT '买方机构数',
+#     `sell_agency_num`   tinyint DEFAULT 0 COMMENT '卖方机构数',
+#     `reason` varchar(100) DEFAULT NULL COMMENT '上榜理由',
+#     `trade_date` DATE COMMENT '日期'
+# )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='机构买卖表';
+#
+# CREATE TABLE `table_dzjy`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `code` varchar(20) DEFAULT NULL COMMENT '股票代码',
+#     `name` varchar(20) DEFAULT NULL COMMENT '股票名称',
+#     `change_ratio` DECIMAL(8,2) DEFAULT 0.00 COMMENT '涨跌幅',
+#     `close_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '收盘价',
+#     `price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '成交价',
+#     `volume` DECIMAL(15,2) DEFAULT 0.00 COMMENT '成交量(万股)',
+#     `deal` DECIMAL(15,2) DEFAULT 0.00 COMMENT '成交额(万元)',
+#     `zy_ratio` DECIMAL(10,5) DEFAULT 0.00 COMMENT '折溢率',
+#     `deal_ltsz_ratio`   DECIMAL(10,8) DEFAULT 0.00 COMMENT '成交额占流通市值比',
+#     `buy_agency_name` varchar(100) DEFAULT NULL  COMMENT '买方机构',
+#     `sell_agency_name` varchar(100) DEFAULT NULL COMMENT '卖方机构',
+#     `trade_date` DATE COMMENT '日期'
+# )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='大宗交易表';
+
+
+# CREATE TABLE `table_wencaixuangu`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `code` varchar(30) DEFAULT NULL COMMENT '股票代码',
+#     `name` varchar(30) DEFAULT NULL COMMENT '股票名称',
+#     `date` DATE COMMENT '日期'
+# )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='问财选股表';
