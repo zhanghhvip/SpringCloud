@@ -49,7 +49,6 @@ public class StockCodeProcessor implements PageProcessor {
     }
     //设置请求头
     private Site site = Site.me()
-            .setRetryTimes(3)
             .setSleepTime(1000)
             .setTimeOut(10000)
             .addHeader("User-Agent","Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36");

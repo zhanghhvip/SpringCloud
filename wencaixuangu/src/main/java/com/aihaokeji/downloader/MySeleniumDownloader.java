@@ -1,6 +1,6 @@
 package com.aihaokeji.downloader;
 
-import org.apache.log4j.Logger;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
@@ -19,10 +19,10 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.util.Map;
 
-public class MySeleniumDownloader implements Downloader, Closeable {
+public class MySeleniumDownloader implements Downloader{
 
-    WebDriver webDriver;
-    private Logger logger = Logger.getLogger(getClass());
+    private WebDriver webDriver;
+//    private Logger logger = Logger.getLogger(getClass());
 
     private int sleepTime = 0;
 
@@ -63,7 +63,7 @@ public class MySeleniumDownloader implements Downloader, Closeable {
         chromeOptions.addArguments("--disable-gpu");
         webDriver = new ChromeDriver(chromeOptions);//ChromeDriver(ChromeDriverService service, ChromeOptions options)
 
-        logger.info("downloading page " + request.getUrl());
+//        logger.info("downloading page " + request.getUrl());
         webDriver.get(request.getUrl());
         try {
             Thread.sleep(sleepTime);
@@ -94,6 +94,7 @@ public class MySeleniumDownloader implements Downloader, Closeable {
         page.setHtml(new Html(content, request.getUrl()));
         page.setUrl(new PlainText(request.getUrl()));
         page.setRequest(request);
+        webDriver.close();
         return page;
     }
 
@@ -104,8 +105,11 @@ public class MySeleniumDownloader implements Downloader, Closeable {
         this.poolSize = thread;
     }
 
-    @Override
-    public void close() throws IOException {
-        webDriver.close();
+//    @Override
+    public void close()  {
+        if(webDriver!=null){
+            webDriver.close();
+        }
+
     }
 }

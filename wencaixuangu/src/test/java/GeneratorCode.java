@@ -1,3 +1,5 @@
+
+
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -6,9 +8,14 @@ import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+
 
 public class GeneratorCode {
-    @Test
+
+
     public void testGenerator(){
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -63,4 +70,6 @@ public class GeneratorCode {
         mpg.setStrategy(strategy);
         mpg.execute();
     }
+
+
 }

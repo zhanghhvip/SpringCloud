@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * </p>
  *
  * @author zhh
- * @since 2020-08-27
+ * @since 2020-09-01
  */
 @Service
 public class WencaixuanguServiceImpl extends ServiceImpl<WencaixuanguMapper, Wencaixuangu> implements WencaixuanguService {

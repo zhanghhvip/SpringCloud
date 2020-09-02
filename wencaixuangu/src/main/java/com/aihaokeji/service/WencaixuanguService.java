@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author zhh
- * @since 2020-08-27
+ * @since 2020-09-01
  */
 public interface WencaixuanguService extends IService<Wencaixuangu> {
 

@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * </p>
  *
  * @author zhh
- * @since 2020-08-27
+ * @since 2020-09-01
  */
 public interface WencaixuanguMapper extends BaseMapper<Wencaixuangu> {
 

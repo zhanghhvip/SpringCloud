@@ -19,6 +19,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 @Component
 public class RealTimeProcessor implements PageProcessor {
@@ -79,41 +80,45 @@ public class RealTimeProcessor implements PageProcessor {
             String code = list.substring(0,list.indexOf("="));
             String[] sublist = list.substring(list.indexOf("=")+1).replaceAll("\"","").split(",");
 //            System.out.println(Arrays.toString(sublist));
-            RealtimeBid realtimeBid = new RealtimeBid();
-            realtimeBid.setCode(code);
-            realtimeBid.setName(sublist[0]);
-            realtimeBid.setTodayOpenPrice(BigDecimal.valueOf(Float.parseFloat(sublist[1])));
-            realtimeBid.setYesterdayClosePrice(BigDecimal.valueOf(Float.parseFloat(sublist[2])));
-            realtimeBid.setCurPrice(BigDecimal.valueOf(Float.parseFloat(sublist[3])));
-            realtimeBid.setTodayHigh(BigDecimal.valueOf(Float.parseFloat(sublist[4])));
-            realtimeBid.setTodayLow(BigDecimal.valueOf(Float.parseFloat(sublist[5])));
-            realtimeBid.setBuyPrice(BigDecimal.valueOf(Float.parseFloat(sublist[6])));
-            realtimeBid.setSellPrice(BigDecimal.valueOf(Float.parseFloat(sublist[7])));
-            realtimeBid.setVolume(Long.valueOf(sublist[8]));
-            realtimeBid.setDeal(BigDecimal.valueOf(Float.parseFloat(sublist[9])));
-            realtimeBid.setBuyOneVolume(Long.valueOf(sublist[10]));
-            realtimeBid.setBuyOnePrice(BigDecimal.valueOf(Float.parseFloat(sublist[11])));
-            realtimeBid.setBuyTwoVolume( Long.valueOf(sublist[12]));
-            realtimeBid.setBuyTwoPrice(BigDecimal.valueOf(Float.parseFloat(sublist[13])));
-            realtimeBid.setBuyThreeVolume(Long.valueOf(sublist[14]));
-            realtimeBid.setBuyThreePrice(BigDecimal.valueOf(Float.parseFloat(sublist[15])));
-            realtimeBid.setBuyFourVolume(Long.valueOf(sublist[16]));
-            realtimeBid.setBuyFourPrice(BigDecimal.valueOf(Float.parseFloat(sublist[17])));
-            realtimeBid.setBuyFiveVolume(Long.valueOf(sublist[18]));
-            realtimeBid.setBuyFivePrice(BigDecimal.valueOf(Float.parseFloat(sublist[19])));
-            realtimeBid.setSellOneVolume(Long.valueOf(sublist[20]));
-            realtimeBid.setSellOnePrice(BigDecimal.valueOf(Float.parseFloat(sublist[21])));
-            realtimeBid.setSellTwoVolume(Long.valueOf(sublist[22]) );
-            realtimeBid.setSellTwoPrice(BigDecimal.valueOf(Float.parseFloat(sublist[23])));
-            realtimeBid.setSellThreeVolume(Long.valueOf(sublist[24]));
-            realtimeBid.setSellThreePrice(BigDecimal.valueOf(Float.parseFloat(sublist[25])));
-            realtimeBid.setSellFourVolume(Long.valueOf(sublist[26]));
-            realtimeBid.setSellFourPrice(BigDecimal.valueOf(Float.parseFloat(sublist[27])));
-            realtimeBid.setSellFiveVolume(Long.valueOf(sublist[28]));
-            realtimeBid.setSellFivePrice(BigDecimal.valueOf(Float.parseFloat(sublist[29])));
-            realtimeBid.setTradeDate(LocalDate.parse(sublist[30], DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-            realtimeBid.setTradeTime(LocalTime.parse(sublist[31], DateTimeFormatter.ofPattern("HH:mm:ss")));
-            realtimeBidList.add(realtimeBid);
+////            System.out.println("数组的长度："+sublist.length);
+            if( sublist.length >1){
+                RealtimeBid realtimeBid = new RealtimeBid();
+                realtimeBid.setCode(code);
+                realtimeBid.setName(sublist[0]);
+                realtimeBid.setTodayOpenPrice(BigDecimal.valueOf(Float.parseFloat(sublist[1])));
+                realtimeBid.setYesterdayClosePrice(BigDecimal.valueOf(Float.parseFloat(sublist[2])));
+                realtimeBid.setCurPrice(BigDecimal.valueOf(Float.parseFloat(sublist[3])));
+                realtimeBid.setTodayHigh(BigDecimal.valueOf(Float.parseFloat(sublist[4])));
+                realtimeBid.setTodayLow(BigDecimal.valueOf(Float.parseFloat(sublist[5])));
+                realtimeBid.setBuyPrice(BigDecimal.valueOf(Float.parseFloat(sublist[6])));
+                realtimeBid.setSellPrice(BigDecimal.valueOf(Float.parseFloat(sublist[7])));
+                realtimeBid.setVolume(Long.valueOf(sublist[8]));
+                realtimeBid.setDeal(BigDecimal.valueOf(Float.parseFloat(sublist[9])));
+                realtimeBid.setBuyOneVolume(Long.valueOf(sublist[10]));
+                realtimeBid.setBuyOnePrice(BigDecimal.valueOf(Float.parseFloat(sublist[11])));
+                realtimeBid.setBuyTwoVolume( Long.valueOf(sublist[12]));
+                realtimeBid.setBuyTwoPrice(BigDecimal.valueOf(Float.parseFloat(sublist[13])));
+                realtimeBid.setBuyThreeVolume(Long.valueOf(sublist[14]));
+                realtimeBid.setBuyThreePrice(BigDecimal.valueOf(Float.parseFloat(sublist[15])));
+                realtimeBid.setBuyFourVolume(Long.valueOf(sublist[16]));
+                realtimeBid.setBuyFourPrice(BigDecimal.valueOf(Float.parseFloat(sublist[17])));
+                realtimeBid.setBuyFiveVolume(Long.valueOf(sublist[18]));
+                realtimeBid.setBuyFivePrice(BigDecimal.valueOf(Float.parseFloat(sublist[19])));
+                realtimeBid.setSellOneVolume(Long.valueOf(sublist[20]));
+                realtimeBid.setSellOnePrice(BigDecimal.valueOf(Float.parseFloat(sublist[21])));
+                realtimeBid.setSellTwoVolume(Long.valueOf(sublist[22]) );
+                realtimeBid.setSellTwoPrice(BigDecimal.valueOf(Float.parseFloat(sublist[23])));
+                realtimeBid.setSellThreeVolume(Long.valueOf(sublist[24]));
+                realtimeBid.setSellThreePrice(BigDecimal.valueOf(Float.parseFloat(sublist[25])));
+                realtimeBid.setSellFourVolume(Long.valueOf(sublist[26]));
+                realtimeBid.setSellFourPrice(BigDecimal.valueOf(Float.parseFloat(sublist[27])));
+                realtimeBid.setSellFiveVolume(Long.valueOf(sublist[28]));
+                realtimeBid.setSellFivePrice(BigDecimal.valueOf(Float.parseFloat(sublist[29])));
+                realtimeBid.setTradeDate(LocalDate.parse(sublist[30], DateTimeFormatter.ofPattern("yyyy-MM-dd")));
+                realtimeBid.setTradeTime(LocalTime.parse(sublist[31], DateTimeFormatter.ofPattern("HH:mm:ss")));
+                realtimeBidList.add(realtimeBid);
+            }
+
         }
       page.putField("list",realtimeBidList);
         //添加下一页
