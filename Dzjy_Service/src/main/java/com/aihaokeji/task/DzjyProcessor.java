@@ -30,7 +30,7 @@ public class DzjyProcessor implements PageProcessor {
     @Autowired
     private MysqlPipeline mysqlPipeline;
     //今天日期
-    LocalDate date = LocalDate.now().minusDays(1);
+    LocalDate date = LocalDate.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     String curDate = formatter.format(date);
     private          String url=  "http://dcfm.eastmoney.com/em_mutisvcexpandinterface/api/js/get?type=DZJYXQ&token=70f12f2f4f091e459a279469fe49eca5&filter=%28Stype=%27EQA%27%29%28TDATE=%5E"+curDate+"%5E%29";

@@ -35,7 +35,7 @@ public class RealTimeProcessor implements PageProcessor {
 
 
     //创建任务
-    @Scheduled(cron = "0 20,25 9 ? * 1-5")
+    @Scheduled(cron = "0 21,26 9 ? * 1-5")
     public void start_Task(){
             codelistall = restTemplate.getForObject("http://localhost:8001/code/findall", List.class);
             List<String> codelist = codelistall.subList(0,500);
@@ -81,7 +81,7 @@ public class RealTimeProcessor implements PageProcessor {
             String[] sublist = list.substring(list.indexOf("=")+1).replaceAll("\"","").split(",");
 //            System.out.println(Arrays.toString(sublist));
 ////            System.out.println("数组的长度："+sublist.length);
-            if( sublist.length >1){
+            if( sublist.length >1 && LocalDate.now()==LocalDate.parse(sublist[30], DateTimeFormatter.ofPattern("yyyy-MM-dd"))){
                 RealtimeBid realtimeBid = new RealtimeBid();
                 realtimeBid.setCode(code);
                 realtimeBid.setName(sublist[0]);

@@ -23,7 +23,7 @@ public class LhbProcessor implements PageProcessor {
     @Autowired
     private MysqlPipeline mysqlPipeline;
     //今天日期
-    LocalDate date = LocalDate.now().minusDays(1);
+    LocalDate date = LocalDate.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     String curDate = formatter.format(date);
     //http://data.eastmoney.com/DataCenter_V3/stock2016/TradeDetail/pagesize=200,page=1,sortRule=-1,sortType=JmMoney,startDate=2020-07-16,endDate=2020-07-16,gpfw=0,js=var%20data_tab_1.html?

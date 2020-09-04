@@ -66,12 +66,15 @@ public class StockCodeProcessor implements PageProcessor {
         List<CodeRawData> codeRawData = JSONObject.parseArray(jsonstring,CodeRawData.class);
         List<Code> codeData =new ArrayList<>(codeRawData.size());
         for (CodeRawData data : codeRawData) {
-           Code code = new Code();
-           String stackcode = data.getF12().startsWith("6")?"sh"+data.getF12():"sz"+data.getF12();
-           code.setCode(stackcode);
-           code.setName(data.getF14());
-           code.setIndustry(data.getF100());
-           codeData.add(code);
+            if( !data.getF14().contains("ST")){
+                Code code = new Code();
+                String stackcode = data.getF12().startsWith("6")?"sh"+data.getF12():"sz"+data.getF12();
+                code.setCode(stackcode);
+                code.setName(data.getF14());
+                code.setIndustry(data.getF100());
+                codeData.add(code);
+            }
+
         }
         page.putField("list",codeData);
 //                //json对象转字符串
