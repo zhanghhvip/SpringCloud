@@ -36,7 +36,7 @@ public class RealTimeProcessor implements PageProcessor {
 
     //创建任务
 //    @Scheduled(cron = "0 */1 * ? * 1-5")
-    @Scheduled(cron = "0 21,26 9 ? * 1-5")
+    @Scheduled(cron = "0 21,26 9 ? * 2-6")
     public void start_Task(){
             codelistall = restTemplate.getForObject("http://localhost:8001/code/findall", List.class);
             List<String> codelist = codelistall.subList(0,500);

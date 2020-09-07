@@ -31,7 +31,7 @@ public class WencxgProcessor {
     @Autowired
     private WencaixuanguService wencaixuanguService;
 
-    @Scheduled(cron = "0 45 10 ? * 1-5")
+    @Scheduled(cron = "0 45 10 ? * 2-6")
     public void downloadpage(){
         System.setProperty("webdriver.chrome.driver",dirverpath );
         ChromeOptions chromeOptions = new ChromeOptions();

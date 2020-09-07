@@ -3,7 +3,7 @@ package com.aihaokeji.task;
 
 import com.aihaokeji.entity.Dzjy;
 import com.aihaokeji.service.DzjyService;
-import org.omg.CORBA.PRIVATE_MEMBER;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.ResultItems;
