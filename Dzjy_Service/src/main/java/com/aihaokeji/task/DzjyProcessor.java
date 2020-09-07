@@ -35,7 +35,7 @@ public class DzjyProcessor implements PageProcessor {
     String curDate = formatter.format(date);
     private          String url=  "http://dcfm.eastmoney.com/em_mutisvcexpandinterface/api/js/get?type=DZJYXQ&token=70f12f2f4f091e459a279469fe49eca5&filter=%28Stype=%27EQA%27%29%28TDATE=%5E"+curDate+"%5E%29";
     //创建任务
-    @Scheduled(cron = "0 0 17 ? * 2-6")
+    @Scheduled(cron = "0 0 17 ? * 1-5")
     public void start_Task(){
         //创建下载器
         HttpClientDownloader httpClientDownloader = new HttpClientDownloader();

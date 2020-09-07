@@ -24,14 +24,15 @@ import java.util.List;
 public class WencxgProcessor {
 
     private WebDriver webDriver;
-    @Value(value = "${chrome.dirverpath}")
-    private String dirverpath;
+//    @Value(value = "${chrome.dirverpath}")
+    private String dirverpath = (Wencaixuangu.class.getClassLoader().getResource("driver/chromedriver.exe")+"").substring(6);
     @Value(value = "${chrome.url}")
     private String url;
     @Autowired
     private WencaixuanguService wencaixuanguService;
 
-    @Scheduled(cron = "0 45 10 ? * 2-6")
+    @Scheduled(cron = "0 */1  * ? * 1-5")
+//    @Scheduled(cron = "0 45 10 ? * 1-5")
     public void downloadpage(){
         System.setProperty("webdriver.chrome.driver",dirverpath );
         ChromeOptions chromeOptions = new ChromeOptions();

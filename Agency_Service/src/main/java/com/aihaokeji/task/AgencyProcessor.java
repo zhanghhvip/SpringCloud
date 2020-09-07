@@ -30,7 +30,7 @@ public class AgencyProcessor implements PageProcessor {
     //http://data.eastmoney.com/DataCenter_V3/stock2016/DailyStockListStatistics/pagesize=500,page=1,sortRule=-1,sortType=PBuy,startDate=2020-07-16,endDate=2020-07-16,gpfw=0,js=var%20data_tab_1.html
     private  String url=  "http://data.eastmoney.com/DataCenter_V3/stock2016/DailyStockListStatistics/pagesize=500,page=1,sortRule=-1,sortType=PBuy,startDate="+curDate+",endDate="+curDate+",gpfw=0,js=var%20data_tab_1.html";
     //创建任务
-    @Scheduled(cron = "0 0 17 ? * 2-6")
+    @Scheduled(cron = "0 0 17 ? * 1-5")
     public void start_Task(){
         //创建下载器
         HttpClientDownloader httpClientDownloader = new HttpClientDownloader();

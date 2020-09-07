@@ -32,7 +32,7 @@ public class StockCodeProcessor implements PageProcessor {
     private  String url="http://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=5000&po=1&np=1&fltt=2&invt=2&fid0=f4001&fid=f62&fs=m:0+t:6+f:!2,m:0+t:13+f:!2,m:0+t:80+f:!2,m:1+t:2+f:!2,m:1+t:23+f:!2&stat=1&fields=f12,f14,f100";
     //创建任务
 //    @Scheduled(cron = "0 */1 *  ?  * 1-5")
-    @Scheduled(cron = "0 15 9 ? * 2-6")
+    @Scheduled(cron = "0 15 9 ? * 1-5")
     public void start_Task(){
         //创建下载器
         HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
