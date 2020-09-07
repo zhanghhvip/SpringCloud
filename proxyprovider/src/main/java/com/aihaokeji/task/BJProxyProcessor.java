@@ -20,7 +20,7 @@ public class BJProxyProcessor implements PageProcessor {
     @Autowired
     private RedisPipeline redisPipeline;
     //定时任务启动方法
-    @Scheduled(cron = "0  0   17  ?   *  1-5  *")
+    @Scheduled(cron = "0  0   17  ?   *  2-6")
     public void process(){
         //创建下载器
         HttpClientDownloader httpClientDownloader = new HttpClientDownloader();
