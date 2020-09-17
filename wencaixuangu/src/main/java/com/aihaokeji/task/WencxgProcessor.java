@@ -11,6 +11,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -31,8 +33,10 @@ public class WencxgProcessor {
     @Autowired
     private WencaixuanguService wencaixuanguService;
 
-    @Scheduled(cron = "0 */1  * ? * 1-5")
-//    @Scheduled(cron = "0 45 10 ? * 1-5")
+    protected static final Logger logger = LoggerFactory.getLogger(WencxgProcessor.class);
+
+//    @Scheduled(cron = "0 */1  * ? * 1-5")
+    @Scheduled(cron = "0 45 9 ? * 1-5")
     public void downloadpage(){
         System.setProperty("webdriver.chrome.driver",dirverpath );
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -70,6 +74,7 @@ public class WencxgProcessor {
             if(list.size()!=0){
                 //        System.out.println(list.size());
                 wencaixuanguService.saveBatch(list);
+                logger.info("保存了"+list.size()+"个数据！");
                 //        System.out.println("保存结束");
             }
         }

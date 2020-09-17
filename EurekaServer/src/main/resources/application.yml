@@ -12,3 +12,7 @@ eureka:
 spring:
   application:
     name: eureka-service
+
+logging:
+  file:
+    name: D:/stock_cloud/eureka.log  #不指定路径，当前项目下生成日志，指定路径，在路径下生成日志

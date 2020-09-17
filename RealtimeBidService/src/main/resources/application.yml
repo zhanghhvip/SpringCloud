@@ -17,3 +17,7 @@ spring:
     url: "jdbc:mysql://localhost:3306/stock_data?useUnicode=true&characterEncoding=utf8&useSSL=false"
     username: root
     password: 123456
+
+logging:
+  file:
+    name: D:/stock_cloud/RealTime.log  #不指定路径，当前项目下生成日志，指定路径，在路径下生成日志

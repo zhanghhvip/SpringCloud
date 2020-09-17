@@ -2,6 +2,8 @@ package com.aihaokeji.Task;
 import com.aihaokeji.entity.Code;
 import com.aihaokeji.service.CodeService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import us.codecraft.webmagic.ResultItems;
@@ -17,6 +19,9 @@ import java.util.Map;
 public class MysqlPipeline implements Pipeline {
     @Autowired
     private CodeService codeService;
+
+    protected static final Logger logger = LoggerFactory.getLogger(MysqlPipeline.class);
+
     @Override
     public void process(ResultItems resultItems, Task task) {
         List<Code> list  =  resultItems.get("list");
@@ -54,6 +59,7 @@ public class MysqlPipeline implements Pipeline {
                     }
                 }
                 codeService.saveBatch(savelist);
+               logger.info("保存了"+savelist.size()+"个数据！");
            }
         }else {
             return;

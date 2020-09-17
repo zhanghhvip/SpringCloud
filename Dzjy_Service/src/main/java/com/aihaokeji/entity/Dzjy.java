@@ -7,7 +7,6 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * <p>
@@ -15,9 +14,8 @@ import java.util.Date;
  * </p>
  *
  * @author zhh
- * @since 2020-07-29
+ * @since 2020-09-16
  */
-
 @TableName("table_dzjy")
 public class Dzjy extends Model<Dzjy> {
 
@@ -48,11 +46,6 @@ public class Dzjy extends Model<Dzjy> {
      * 收盘价
      */
     private BigDecimal closePrice;
-
-    /**
-     * 流通市值（元）
-     */
-    private BigDecimal ltsz;
 
     /**
      * 成交价
@@ -92,7 +85,7 @@ public class Dzjy extends Model<Dzjy> {
     /**
      * 日期
      */
-    private Date tradeDate;
+    private LocalDate tradeDate;
 
 
     public Long getId() {
@@ -133,14 +126,6 @@ public class Dzjy extends Model<Dzjy> {
 
     public void setClosePrice(BigDecimal closePrice) {
         this.closePrice = closePrice;
-    }
-
-    public BigDecimal getLtsz() {
-        return ltsz;
-    }
-
-    public void setLtsz(BigDecimal ltsz) {
-        this.ltsz = ltsz;
     }
 
     public BigDecimal getPrice() {
@@ -199,11 +184,11 @@ public class Dzjy extends Model<Dzjy> {
         this.sellAgencyName = sellAgencyName;
     }
 
-    public Date getTradeDate() {
+    public LocalDate getTradeDate() {
         return tradeDate;
     }
 
-    public void setTradeDate(Date tradeDate) {
+    public void setTradeDate(LocalDate tradeDate) {
         this.tradeDate = tradeDate;
     }
 
@@ -220,7 +205,6 @@ public class Dzjy extends Model<Dzjy> {
         ", name=" + name +
         ", changeRatio=" + changeRatio +
         ", closePrice=" + closePrice +
-        ", ltsz=" + ltsz +
         ", price=" + price +
         ", volume=" + volume +
         ", deal=" + deal +

@@ -4,12 +4,13 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class DzjyRawData implements Serializable {
     //2020-07-29T00:00:00
     @JSONField(format="yyyy-MM-ddTHH:mm:ss")
-    private Date TDATE;
+    private LocalDate TDATE;
     private String SECUCODE;
     private String SNAME;
     private BigDecimal PRICE;
@@ -32,11 +33,11 @@ public class DzjyRawData implements Serializable {
     private String   RCHANGE20DC;
     private String TEXCH;
 
-    public Date getTDATE() {
+    public LocalDate getTDATE() {
         return TDATE;
     }
 
-    public void setTDATE(Date TDATE) {
+    public void setTDATE(LocalDate TDATE) {
         this.TDATE = TDATE;
     }
 
