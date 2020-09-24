@@ -15,7 +15,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <mysql.version>5.1.46</mysql.version>
-        <lombok.version>1.16.20</lombok.version>
+        <lombok.version>1.18.12</lombok.version>
         <mybatis.plus.version>3.3.1</mybatis.plus.version>
         <!--<jackson.version>2.6.7</jackson.version>-->
 <!--        <fastjson.version>1.2.47</fastjson.version>-->
@@ -101,6 +101,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

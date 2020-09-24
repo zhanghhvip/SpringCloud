@@ -5,7 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>EurekaServer</module>
-        <module>proxyprovider</module>
+<!--        <module>proxyprovider</module>-->
 
 
         <module>Dzjy_Service</module>

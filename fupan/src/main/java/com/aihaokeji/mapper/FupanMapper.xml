@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aihaokeji.mapper.FupanMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.aihaokeji.entity.Fupan">
+        <id column="id" property="id" />
+        <result column="code" property="code" />
+        <result column="name" property="name" />
+        <result column="change_ratio" property="changeRatio" />
+        <result column="close_price" property="closePrice" />
+        <result column="first_time" property="firstTime" />
+        <result column="last_time" property="lastTime" />
+        <result column="duration" property="duration" />
+        <result column="reason" property="reason" />
+        <result column="fdl" property="fdl" />
+        <result column="fde" property="fde" />
+        <result column="ltsz" property="ltsz" />
+        <result column="fdl_vol_ratio" property="fdlVolRatio" />
+        <result column="fdl_ltg_ratio" property="fdlLtgRatio" />
+        <result column="kb_num" property="kbNum" />
+        <result column="ss_days" property="ssDays" />
+        <result column="type" property="type" />
+        <result column="zt_days" property="ztDays" />
+        <result column="trade_date" property="tradeDate" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, code, name, change_ratio, close_price, first_time, last_time, duration, reason, fdl, fde, ltsz, fdl_vol_ratio, fdl_ltg_ratio, kb_num, ss_days, type, zt_days, trade_date
+    </sql>
+
+</mapper>

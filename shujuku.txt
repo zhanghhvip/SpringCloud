@@ -1,4 +1,16 @@
-# use mysql;
+# use test_db;
+# select code,count(date) from test_stock where date_sub(curdate(),interval 7 day )<= curdate() group by code ;
+# select code,date from test_stock where datediff(date,curdate())< 5  ;
+# 查询连续7天内出现次数大于3的股票
+# select code,count(date) from test_stock where date_sub(curdate(),interval 7 day )<=date(date)group by code;
+# select distinct code,name from test_stock where code in (select code from test_stock where date_sub(curdate(),interval 7 day )<=date(date)group by code having count(date)>=3)
+
+# create table test_stock(
+# code varchar(10),
+# name varchar(10) ,
+# trade varchar(10),
+# date varchar(10)
+# );
 # show tables;
 #创建数据库
 # CREATE DATABASE IF NOT EXISTS test_db
@@ -159,6 +171,28 @@
 #     `trade_date` DATE COMMENT '日期'
 # )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='大宗交易表';
 
+# CREATE TABLE `table_fupan`(
+#     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
+#     `code` varchar(20) DEFAULT NULL COMMENT '股票代码',
+#     `name` varchar(20) DEFAULT NULL COMMENT '股票名称',
+#     `change_ratio` DECIMAL(8,2) DEFAULT 0.00 COMMENT '涨跌幅',
+#     `close_price` DECIMAL(8,2) DEFAULT 0.00 COMMENT '收盘价',
+#     `first_time`  TIME  COMMENT '首次涨停时间',
+#     `last_time` TIME COMMENT '最终涨停时间',
+#     `duration` integer DEFAULT 0 COMMENT '连续涨停天数',
+#     `reason` varchar(100) DEFAULT NULL  COMMENT '涨停原因类别',
+#     `fdl` DECIMAL(8,2) DEFAULT 0.00 COMMENT '涨停封单量(万)',
+#     `fde` DECIMAL(15,2) DEFAULT 0.00 COMMENT '涨停封单额(万)',
+#     `ltsz`DECIMAL(10,2) DEFAULT 0.00 COMMENT '流通市值(亿)',
+#     `fdl_vol_ratio` DECIMAL(6,2) DEFAULT 0.00  COMMENT '涨停封成比',
+#     `fdl_ltg_ratio` DECIMAL(6,2) DEFAULT 0.00  COMMENT '涨停封流比',
+#     `kb_num` integer COMMENT '涨停开板次数',
+#     `ss_days` integer COMMENT '上市天数',
+#     `type` varchar(100) DEFAULT NULL COMMENT '涨停类型',
+#     `zt_days` varchar(20) DEFAULT NULL COMMENT '几天几板',
+#     `trade_date` DATE COMMENT '日期'
+# )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='复盘表';
+
 
 # CREATE TABLE `table_wencaixuangu`(
 #     `id` bigint(10) PRIMARY KEY NOT NULL AUTO_INCREMENT COMMENT '主键id',
@@ -166,3 +200,31 @@
 #     `name` varchar(30) DEFAULT NULL COMMENT '股票名称',
 #     `date` DATE COMMENT '日期'
 # )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='问财选股表';
+
+# truncate table table_realtime_bid;
+# truncate table stock_code;
+# 查询集合竞价选股
+#and(second.buy_one_price-first.buy_one_price)>0.2  and(second.buy_one_volume)>1000 and(second.sell_one_volume)<100
+# select second.code,second.name from table_realtime_bid first, table_realtime_bid second where first.code = second.code and first.trade_date = second.trade_date and (first.buy_price)>0 and (second.buy_one_volume/first.buy_one_volume)>1 and(second.buy_one_price-first.buy_one_price)>0.2  and(second.buy_one_volume)>1000 and(second.sell_one_volume)<100 ;
+# select * from table_realtime_bid where trade_date = curdate() and trade_time <'09:23:00';
+# select * from table_realtime_bid where trade_date = curdate() and trade_time >'09:23:00';
+# select * from (select * from table_realtime_bid where trade_date = curdate() and trade_time <'09:23:00') as a,(select * from table_realtime_bid where trade_date = curdate() and trade_time >'09:23:00') as b where a.code = b.code and (a.buy_price)>0 and (b.volume - a.volume) >10000000 and (b.buy_one_volume - a.buy_one_volume)>0 and(b.buy_one_price-a.buy_one_price)>0.1 and (b.sell_one_volume - a.sell_one_volume)< 0 ;
+# select * from (select * from table_realtime_bid where trade_date = curdate() and trade_time <'09:23:00') as a,(select * from table_realtime_bid where trade_date = curdate() and trade_time >'09:23:00') as b where a.code = b.code and (a.buy_price)>0 and (b.volume - a.volume) >1000000 and (b.buy_one_volume - a.buy_one_volume)>0  and(b.buy_one_price-a.buy_one_price)>0.01 and (b.sell_one_volume - a.sell_one_volume)< 0;、
+# 09：20的价格大于昨天收盘价，0925价格大于0920价格，0925买入量大于0920买入量
+#select * from (select * from table_realtime_bid where trade_date = curdate() and trade_time <'09:23:00') as a,(select * from table_realtime_bid where trade_date = curdate() and trade_time >'09:23:00') as b where a.code = b.code and (a.buy_price)>0 and (b.volume - a.volume) >1000000 and (b.buy_one_volume - a.buy_one_volume)>=0  and(b.buy_one_price-a.buy_one_price)>0.01 and (b.sell_one_volume - a.sell_one_volume)< 0;
+
+#选择当天大宗交易买入量最多的前10股票
+# select code,sum(volume) as buysum from table_dzjy where trade_date = curdate()  group by code order by buysum desc limit 10;
+#选择当天大宗交易买入次数大于3次
+# select  code,count(code) num from table_dzjy where trade_date=str_to_date('2020-07-29','%Y-%m-%d') group by code having num>=3 order by num desc ;
+#选择最近一周中连续出现3天的股票
+# select from table_dzjy where date_sub(curdate(),interval 7 day );
+# select  code,trade_date  from table_dzjy where date_sub(curdate(),interval 7 day )group by code,trade_date;
+# select code from (select  * from table_dzjy where date_sub(curdate(),interval 7 day ))
+# use stock_data;
+# 龙虎榜净买入额排名
+# select code,sum(lhb_net_buy) from table_longhubang where trade_date = str_to_date('2020-07-31','%Y-%m-%d') group by code order by sum(lhb_net_buy) desc ;
+#选择当天大宗交易买入次数大于3次
+# select  code,count(code) num from table_longhubang where trade_date=str_to_date('2020-07-31','%Y-%m-%d') group by code having num>=2 order by num desc ;
+#选择龙虎榜或者大宗交易或者两个最近7天内出现2次以上的股票
+# select code from table_dzjy where date_sub(curdate(),interval 7 day )<=date(trade_date)group by code having count(distinct date_sub(curdate(),interval 7 day )<=date(trade_date))>2;

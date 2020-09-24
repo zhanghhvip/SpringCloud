@@ -12,6 +12,8 @@ eureka:
 spring:
   application:
     name: eureka-service
+  jackson:
+    time-zone:  GMT+8
 
 logging:
   file:

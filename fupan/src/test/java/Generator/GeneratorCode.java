@@ -15,7 +15,7 @@ import org.springframework.core.env.Environment;
 
 public class GeneratorCode {
 
-
+    @Test
     public void testGenerator(){
         // 代码生成器
         AutoGenerator mpg = new AutoGenerator();
@@ -40,7 +40,7 @@ public class GeneratorCode {
         dsc.setUrl("jdbc:mysql://localhost:3306/stock_data?useUnicode=true&useSSL=false&characterEncoding=utf8");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("123456");
+        dsc.setPassword("271828");
 
         mpg.setDataSource(dsc);
 

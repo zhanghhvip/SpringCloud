@@ -19,6 +19,7 @@ import us.codecraft.webmagic.scheduler.QueueScheduler;
 
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class DzjyProcessor implements PageProcessor {
     String curDate = formatter.format(date);
     private          String url=  "http://dcfm.eastmoney.com/em_mutisvcexpandinterface/api/js/get?type=DZJYXQ&token=70f12f2f4f091e459a279469fe49eca5&filter=%28Stype=%27EQA%27%29%28TDATE=%5E"+curDate+"%5E%29";
     //创建任务
-//    @Scheduled(cron = "0 47 20 ? * 1-5")
+//    @Scheduled(cron = "0 */1 * ? * 1-5")
     @Scheduled(cron = "0 0 17 ? * 1-5")
     public void start_Task(){
         //创建下载器
@@ -83,7 +84,7 @@ public class DzjyProcessor implements PageProcessor {
             dzjy.setDealLtszRatio(d.getCjeltszb());
             dzjy.setBuyAgencyName(d.getBUYERNAME());
             dzjy.setSellAgencyName(d.getSALESNAME());
-            dzjy.setTradeDate(d.getTDATE());
+            dzjy.setTradeDate(d.getTDATE().toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
             dzjyData.add(dzjy);
         }
         page.putField("list",dzjyData);

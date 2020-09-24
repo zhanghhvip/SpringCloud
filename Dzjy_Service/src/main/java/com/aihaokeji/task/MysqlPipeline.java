@@ -31,7 +31,7 @@ public class MysqlPipeline implements Pipeline {
             logger.info("保存了"+list.size()+"个数据！");
             //        System.out.println("保存结束");
         }else {
-            return;
+            logger.info("没有数据！");
         }
     }
 }
