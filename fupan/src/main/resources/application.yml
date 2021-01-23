@@ -16,12 +16,12 @@ spring:
     time-zone:  GMT+8
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/stock_data?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true"
+    url: "jdbc:mysql://localhost:3306/stock_data?useUnicode=true&characterEncoding=utf8mb4&useSSL=false&allowPublicKeyRetrieval=true"
     username: root
     password: 271828
 
 chrome:
-  url: "http://www.iwencai.com/stockpick/search?w=%E5%BC%80%E7%9B%983%E5%88%86%E9%92%9F%E6%8D%A2%E6%89%8B%E7%8E%87%3E2%EF%BC%9B%E5%BC%80%E7%9B%983%E5%88%86%E9%92%9F%E6%88%90%E4%BA%A4%E9%A2%9D%3E5000%E4%B8%87%EF%BC%9B%E5%BC%80%E7%9B%9815%E5%88%86%E9%92%9F%E5%89%8D%E5%A4%8D%E6%9D%83%E6%B6%A8%E5%B9%85%EF%BC%9E3%25%EF%BC%9B%E5%BC%80%E7%9B%98%E5%9C%A8-3%25%E4%BB%A5%E4%B8%8A%EF%BC%9B%E5%BC%80%E7%9B%98%E6%88%90%E4%BA%A4%E9%A2%9D%3E2000%E4%B8%87%EF%BC%9B"
+  url: "http://www.iwencai.com/stockpick/search?typed=1&preParams=&ts=1&f=1&qs=index_rewrite&selfsectsn=&querytype=stock&searchfilter=&tid=stockpick&w=%E6%B6%A8%E5%81%9C%E4%B8%8D%E5%8C%85%E5%90%ABst%EF%BC%9B"
 
 
 logging:

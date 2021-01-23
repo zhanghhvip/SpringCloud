@@ -1,0 +1,20 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: standalone
+    instance-id: ${spring.application.name}:${spring.cloud.client.ip-address}:${server.port}
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: eureka-service
+  jackson:
+    time-zone:  GMT+8
+
+logging:
+  file:
+    name: /home/zhh/stockdata/logs/eureka.log  #不指定路径，当前项目下生成日志，指定路径，在路径下生成日志

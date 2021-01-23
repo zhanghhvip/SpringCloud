@@ -26,8 +26,10 @@ import java.util.List;
 public class WencxgProcessor {
 
     private WebDriver webDriver;
+    private String dirverpath = System.getProperty("user.dir")+ "/driver/chromedriver.exe";//jar包所在目录名
+
 //    @Value(value = "${chrome.dirverpath}")
-    private String dirverpath = (Wencaixuangu.class.getClassLoader().getResource("driver/chromedriver.exe")+"").substring(6);
+//    private String dirverpath =
     @Value(value = "${chrome.url}")
     private String url;
     @Autowired
@@ -38,16 +40,17 @@ public class WencxgProcessor {
 //    @Scheduled(cron = "0 */1  * ? * 1-5")
     @Scheduled(cron = "0 45 9 ? * 1-5")
     public void downloadpage(){
+//        System.out.println(dirverpath);
         System.setProperty("webdriver.chrome.driver",dirverpath );
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("--disable-gpu");
-        chromeOptions.addArguments("Accept-Language", "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
-        .addArguments("Connection", "keep-alive")
-                .addArguments("X-Requested-With", "XMLHttpRequest")
-                .addArguments("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
-                .addArguments( "User-Agent",  "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36")
-                .addArguments("Upgrade-Insecure-Requests", "0");
+//        chromeOptions.addArguments("--disable-gpu");
+//        chromeOptions.addArguments("Accept-Language", "zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3")
+//        .addArguments("Connection", "keep-alive")
+//                .addArguments("X-Requested-With", "XMLHttpRequest")
+//                .addArguments("Content-Type", "application/x-www-form-urlencoded;charset=utf-8")
+//                .addArguments( "User-Agent",  "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36")
+//                .addArguments("Upgrade-Insecure-Requests", "0");
         webDriver = new ChromeDriver(chromeOptions);
         webDriver.get(url);
         WebElement webElement = webDriver.findElement(By.xpath("/html"));

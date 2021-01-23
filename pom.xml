@@ -18,6 +18,8 @@
         <module>StockCodePool</module>
         <module>wencaixuangu</module>
         <module>fupan</module>
+        <module>IndustryCode_Service</module>
+        <module>ConceptCode_Service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
